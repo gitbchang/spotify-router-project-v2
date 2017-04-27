@@ -21,6 +21,7 @@ const createStoreWithMiddleware = applyMiddleware(
   reduxRouterMiddleware
 )(createStore);
 const store = createStoreWithMiddleware(reducer);
+ss
 */
 
 require('./style.less');
