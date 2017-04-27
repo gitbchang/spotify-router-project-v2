@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import { connect }      from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../actions/';
 import {
   getMyInfo,
   setTokens,
 }   from '../actions/';
+
+import RaisedButton from 'material-ui/RaisedButton';
+
+function mapStateToProps(state) {
+  return {
+    accessToken: state.accessToken,
+    refreshToken: state.refreshToken,
+    user: state.user
+  };
+}
+
+export function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
 
 /**
  * Our user page
@@ -34,19 +51,25 @@ class User extends Component {
         <div className="user-content">
           <img src={imageUrl} />
           <ul>
-            <li><span>Display name</span><span>{display_name}</span></li>
-            <li><span>Id</span><span>{id}</span></li>
-            <li><span>Email</span><span>{email}</span></li>
-            <li><span>Spotify URI</span><span><a href={external_urls.spotify}>{external_urls.spotify}</a></span></li>
-            <li><span>Link</span><span><a href={href}>{href}</a></span></li>
-            <li><span>Profile Image</span><span><a href={imageUrl}>{imageUrl}</a></span></li>
-            <li><span>Country</span><span>{country}</span></li>
-            <li><span>Product</span><span>{product}</span></li>
+            <li><span>Display name_</span><span>{display_name}</span></li>
+            <li><span>Id_</span><span>{id}</span></li>
+            <li><span>Email_</span><span>{email}</span></li>
+            <li><span>Spotify URI_</span><span><a href={external_urls.spotify}>{external_urls.spotify}</a></span></li>
+            <li><span>Link_</span><span><a href={href}>{href}</a></span></li>
+            <li><span>Profile Image_</span><span><a href={imageUrl}>{imageUrl}</a></span></li>
+            <li><span>Country_</span><span>{country}</span></li>
+            <li><span>Product_</span><span>{product}</span></li>
           </ul>
         </div>
+        <RaisedButton label="Go to Search" primary={true} style={{margin: 12}}
+          onClick={() => browserHistory.push('/search')}
+         />
       </div>
     );
   }
 }
 
+
 export default connect(state => state)(User);
+// export default connect(mapStateToProps, mapDispatchToProps)(User);
+// export default connect(state => {user: state.user})(User);

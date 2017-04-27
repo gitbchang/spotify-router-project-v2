@@ -7,6 +7,9 @@ export const SPOTIFY_ME_BEGIN = 'SPOTIFY_ME_BEGIN';
 export const SPOTIFY_ME_SUCCESS = 'SPOTIFY_ME_SUCCESS';
 export const SPOTIFY_ME_FAILURE = 'SPOTIFY_ME_FAILURE';
 
+export const SPOTIFY_SIGN_OUT = 'SPOTIFY_SIGN_OUT';
+
+
 /** set the app's access and refresh tokens */
 export function setTokens({accessToken, refreshToken}) {
   if (accessToken) {
@@ -26,3 +29,10 @@ export function getMyInfo() {
     });
   };
 }
+export function clearTokenCookie(accessToken) {
+  accessToken = '';
+  spotifyApi.setAccessToken(accessToken);
+  return {type: SPOTIFY_SIGN_OUT, accessToken};
+}
+
+

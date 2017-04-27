@@ -17,7 +17,11 @@ class TopBar extends Component {
   
   handleTouchTap() {
   // alert('onTouchTap triggered on the title component');
-  }
+}
+
+signOut = () => {
+  
+}
 
   render() {
     return (

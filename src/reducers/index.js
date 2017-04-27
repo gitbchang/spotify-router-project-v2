@@ -1,5 +1,5 @@
 import {
-  SPOTIFY_TOKENS, SPOTIFY_ME_BEGIN, SPOTIFY_ME_SUCCESS, SPOTIFY_ME_FAILURE
+  SPOTIFY_TOKENS, SPOTIFY_ME_BEGIN, SPOTIFY_ME_SUCCESS, SPOTIFY_ME_FAILURE, SPOTIFY_SIGN_OUT
 } from '../actions/';
 
 /** The initial state; no tokens and no user info */
@@ -43,6 +43,8 @@ export default function reduce(state = initialState, action) {
     return Object.assign({}, state, {
       user: Object.assign({}, state.user, action.data, {loading: false})
     });
+  case SPOTIFY_SIGN_OUT:
+    return Object.assign({}, state, accessToken);
 
   // currently no failure state :(
   case SPOTIFY_ME_FAILURE:

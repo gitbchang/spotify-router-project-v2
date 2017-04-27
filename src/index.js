@@ -14,6 +14,7 @@ import App     from './components/App';
 import Login   from './components/Login';
 import User    from './components/User';
 import Error   from './components/Error';
+import Gallery from './components/Gallery';
 
 // material UI themes
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -72,6 +73,7 @@ const finalRouter = (
               <IndexRoute component={Login} />
               <Route path="/user/:accessToken/:refreshToken" component={User} />
               <Route path="/error/:errorMsg" component={Error} />
+              <Route path="/search" component={Gallery} />
             </Route>
           </Router>
         </MuiThemeProvider>

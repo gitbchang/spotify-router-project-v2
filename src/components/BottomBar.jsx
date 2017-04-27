@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import { StickyContainer, Sticky } from 'react-sticky';
 
-import { Navbar } from 'react-bootstrap';
 
 
 class BottomBar extends Component {
   render() {
     return (
-      <div>
-        <Navbar className='sticky-footer' fixedBottom={true}>
-          <div className='text-center' style={{'paddingTop': "15px"}} >B.Chang</div>
-        </Navbar>
-      </div>
+      <StickyContainer>
+        <Sticky> 
+          <h3 className='text-center' style={{color: 'white'}}>B.Chang</h3>
+        </Sticky>
+      </StickyContainer>
     );
   }
 }
